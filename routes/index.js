@@ -51,7 +51,7 @@ router.get('/energy',(req,res)=>{
 
 router.get('/warning',(req,res)=>{
   const t = Math.random()*10;
-  const result = t-6>0;
+  const result = t-3>0;
   if(result){
     return res.send({
       data:{
