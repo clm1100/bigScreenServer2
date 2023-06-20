@@ -43,7 +43,8 @@ router.get('/energy',(req,res)=>{
       {
         "x": "房间2",
         "y": 40,
-        "s": "系列一"
+        "s": "系列一",
+        "colorField": 100
       }
     ]
   })
