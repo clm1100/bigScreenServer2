@@ -138,7 +138,7 @@ router.get('/totalenergy',(req,res)=>{
   const m = moment().format("m");
   const s = moment().format("s");
 
-  const t = m*50+m*10+s;
+  const t = Number(h*50)+Number(m*10)+Number(s)
 
   res.send({
       data:{
