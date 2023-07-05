@@ -9,7 +9,7 @@ function rand(min,max){
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: '接口服务' });
 });
 
 router.get('/space', function(req, res, next) {
@@ -32,18 +32,19 @@ router.get('/space', function(req, res, next) {
 });
 
 router.get('/energy',(req,res)=>{
+  const v2 = rand(60,80)
   res.send({
     data:[
       {
-        "x": "房间1",
-        "y": 60,
-        "s": "系列一",
+        "x": "空间1",
+        "y": 100,
+        "s": "能耗1",
         "colorField": 100
       },
       {
-        "x": "房间2",
-        "y": 40,
-        "s": "系列一",
+        "x": "空间2",
+        "y": v2,
+        "s": "能耗2",
         "colorField": 100
       }
     ]
@@ -52,7 +53,7 @@ router.get('/energy',(req,res)=>{
 
 router.get('/warning',(req,res)=>{
   const t = Math.random()*10;
-  const result = t-3>0;
+  const result = t-5>0;
   if(result){
     return res.send({
       data:{
@@ -91,22 +92,22 @@ router.get('/average',(req,res)=>{
       {
         "x": `${ele}时`,
         "y": rand(18,36),
-        "s": "房间1-温度"
+        "s": "空间1-温度"
       },
       {
         "x": `${ele}时`,
         "y": rand(50,60),
-        "s": "房间1-湿度度"
+        "s": "空间2-湿度度"
       },
       {
         "x": `${ele}时`,
         "y": rand(17,35),
-        "s": "房间2-温度"
+        "s": "空间2-温度"
       },
       {
         "x": `${ele}时`,
         "y": rand(55,65),
-        "s": "房间2-湿度度"
+        "s": "空间2-湿度度"
       },
     ])
   })
@@ -120,3 +121,5 @@ router.get('/average',(req,res)=>{
 
 
 module.exports = router;
+
+
