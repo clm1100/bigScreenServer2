@@ -12,24 +12,39 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: '接口服务' });
 });
 
-router.get('/space', function(req, res, next) {
+
+
+
+
+router.get('/space/tmp', function(req, res, next) {
   const id = req.query.id;
   if(id==1){
    return  res.send({
-      data:{ "content": `温度：${rand(20,36)}\n湿度：${rand(50,65)}\n当日能耗：${40,50}`}
+      data:{ "content": rand(20,36)+"℃"}
     })
   }
   if(id==2){
    return  res.send({
-    data:{ "content": `温度：${rand(20,36)}\n湿度：${rand(50,65)}\n当日能耗：${40,50}`}
+      data:{ "content": rand(20,36)+"℃"}
+    })
+  }  
+});
+
+
+router.get('/space/hum', function(req, res, next) {
+  const id = req.query.id;
+  if(id==1){
+   return  res.send({
+      data:{ "content": rand(50,65)+"℃"}
     })
   }
-
-  res.send({
-    data:{ "content": "温度：99\n湿度：99\n当日能耗：99"}
-  })
-  
+  if(id==2){
+   return  res.send({
+      data:{ "content": rand(50,65)+"℃"}
+    })
+  }  
 });
+
 
 router.get('/energy',(req,res)=>{
   const v2 = rand(60,80)
@@ -38,13 +53,13 @@ router.get('/energy',(req,res)=>{
       {
         "x": "空间1",
         "y": 100,
-        "s": "能耗1",
+        "s": "能耗",
         "colorField": 100
       },
       {
         "x": "空间2",
         "y": v2,
-        "s": "能耗2",
+        "s": "能耗",
         "colorField": 100
       }
     ]
@@ -118,6 +133,24 @@ router.get('/average',(req,res)=>{
 })
 
 
+router.get('/space', function(req, res, next) {
+  const id = req.query.id;
+  if(id==1){
+   return  res.send({
+      data:{ "content": `温度：${rand(20,36)}\n湿度：${rand(50,65)}\n当日能耗：${40,50}`}
+    })
+  }
+  if(id==2){
+   return  res.send({
+    data:{ "content": `温度：${rand(20,36)}\n湿度：${rand(50,65)}\n当日能耗：${40,50}`}
+    })
+  }
+
+  res.send({
+    data:{ "content": "温度：99\n湿度：99\n当日能耗：99"}
+  })
+  
+});
 
 
 module.exports = router;
