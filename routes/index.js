@@ -20,12 +20,12 @@ router.get('/space/tmp', function(req, res, next) {
   const id = req.query.id;
   if(id==1){
    return  res.send({
-      data:{ "content": rand(20,36)+"℃"}
+      data:{ "content": rand(29,34)+"℃"}
     })
   }
   if(id==2){
    return  res.send({
-      data:{ "content": rand(20,36)+"℃"}
+      data:{ "content": rand(28,33)+"℃"}
     })
   }  
 });
@@ -35,12 +35,12 @@ router.get('/space/hum', function(req, res, next) {
   const id = req.query.id;
   if(id==1){
    return  res.send({
-      data:{ "content": rand(50,65)+"℃"}
+      data:{ "content": rand(61,65)+"%"}
     })
   }
   if(id==2){
    return  res.send({
-      data:{ "content": rand(50,65)+"℃"}
+      data:{ "content": rand(62,66)+"%"}
     })
   }  
 });
@@ -133,24 +133,24 @@ router.get('/average',(req,res)=>{
 })
 
 
-router.get('/space', function(req, res, next) {
-  const id = req.query.id;
-  if(id==1){
-   return  res.send({
-      data:{ "content": `温度：${rand(20,36)}\n湿度：${rand(50,65)}\n当日能耗：${40,50}`}
-    })
-  }
-  if(id==2){
-   return  res.send({
-    data:{ "content": `温度：${rand(20,36)}\n湿度：${rand(50,65)}\n当日能耗：${40,50}`}
-    })
-  }
+// router.get('/space', function(req, res, next) {
+//   const id = req.query.id;
+//   if(id==1){
+//    return  res.send({
+//       data:{ "content": `温度：${rand(20,36)}\n湿度：${rand(50,65)}\n当日能耗：${40,50}`}
+//     })
+//   }
+//   if(id==2){
+//    return  res.send({
+//     data:{ "content": `温度：${rand(20,36)}\n湿度：${rand(50,65)}\n当日能耗：${40,50}`}
+//     })
+//   }
 
-  res.send({
-    data:{ "content": "温度：99\n湿度：99\n当日能耗：99"}
-  })
+//   res.send({
+//     data:{ "content": "温度：99\n湿度：99\n当日能耗：99"}
+//   })
   
-});
+// });
 
 
 module.exports = router;
