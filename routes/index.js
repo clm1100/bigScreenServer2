@@ -133,6 +133,28 @@ router.get('/average',(req,res)=>{
 })
 
 
+router.get('/totalenergy',(req,res)=>{
+  const h = moment().format("h");
+  const m = moment().format("m");
+  const s = moment().format("s");
+
+  const t = m*100+m*10*s;
+
+  res.send({
+      data:{
+        "content": t+"kw"
+      }
+    })
+})
+
+
+router.get('/currenthm',(req,res)=>{
+
+  res.send({
+    data:{ "content": rand(50,55)+"%"}
+    })
+})
+
 // router.get('/space', function(req, res, next) {
 //   const id = req.query.id;
 //   if(id==1){
